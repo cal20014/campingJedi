@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 https://trello.com/b/rVrICl32/wdd-330-fall-2023 - Grant
 Gavin Hart
+=======
+https://trello.com/b/rVrICl32/wdd-330-fall-2023 - Grant W
+>>>>>>> cc318933b4c28023e65d02e3a446ccd8fb3f8dee
