@@ -2,6 +2,8 @@ import { setLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
 
 function addProductToCart(product) {
+  // check if product exists if so append it on the end of the array
+  // makeproducts instead of product
   setLocalStorage("so-cart", product);
 }
 // add to cart button event handler
