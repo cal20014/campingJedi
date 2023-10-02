@@ -6,7 +6,7 @@ function addProductToCart(product) {
   // Get the existing cart data from local storage
   let cart = getLocalStorage("so-cart");
 
-  // If the cart data doesn't exist, initialize an empty array
+  // If the cart data doesn't exist, initialize an empty array for the cart
   if (!cart) {
     cart = [];
   }
