@@ -16,7 +16,7 @@ export default async function productDetails(productId, selector) {
     .addEventListener("click", addProductToCart);
 }
 
-function addProductToCart() {
+export function addProductToCart() {
   // Get the existing cart data from local storage
   let cart = getLocalStorage("so-cart");
 
