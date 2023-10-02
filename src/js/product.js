@@ -1,6 +1,13 @@
 import { setLocalStorage } from "./utils.mjs";
 import { getLocalStorage } from "./utils.mjs";
 import { findProductById } from "./productData.mjs";
+import { getParam } from  "./utils.mjs";
+import productDetails from "./productDetails.mjs";
+
+const productId = getParam("product");
+productDetails(productId, ".productDetails")
+
+console.log(await findProductById(productId));
 
 function addProductToCart(product) {
   // Get the existing cart data from local storage
