@@ -45,7 +45,7 @@ function productDetailsTemplate(item) {
 
   <p class="product-card__price">$${item.FinalPrice}</p>
 
-  <p class="product__color">${item.Color[0].ColorName}</p>
+  <p class="product__color">${item.Colors[0].ColorName}</p>
 
   <p class="product__description">${item.DescriptionHtmlSimple}</p>
 
