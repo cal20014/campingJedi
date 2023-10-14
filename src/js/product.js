@@ -13,9 +13,13 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-// add listener to Add to Cart button`
-const addCartButton = document.querySelector("#addToCart")
-console.log(addCartButton);
-addCartButton.addEventListener("click", addToCartHandler);
+setTimeout(() => {
+  const addCartButton = document.querySelector("#addToCart");
+  console.log(addCartButton);
+  if (addCartButton) {
+      addCartButton.addEventListener("click", addToCartHandler);
+  }
+}, 1000); // delays for 5 seconds
+
 
 renderHeaderFooter()
