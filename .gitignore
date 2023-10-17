@@ -5,3 +5,6 @@ web_modules
 node_modules
 dist
 .env
+
+pnpm-lock.yaml
+pack-lock.json
