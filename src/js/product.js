@@ -2,6 +2,7 @@ import { findProductById } from "./productData.mjs";
 import { getParam } from "./utils.mjs";
 import productDetails from "./productDetails.mjs";
 import { addProductToCart } from "./productDetails.mjs";
+import { renderHeaderFooter } from "./utils.mjs";
 
 const productId = getParam("product");
 productDetails(productId, ".product-detail");
@@ -12,7 +13,13 @@ async function addToCartHandler(e) {
   addProductToCart(product);
 }
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+setTimeout(() => {
+  const addCartButton = document.querySelector("#addToCart");
+  console.log(addCartButton);
+  if (addCartButton) {
+      addCartButton.addEventListener("click", addToCartHandler);
+  }
+}, 1000); // delays for 5 seconds
+
+
+renderHeaderFooter()
