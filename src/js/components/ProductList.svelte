@@ -8,7 +8,7 @@ let promise = getData(category);
 
 </script>
 
-<h2>Top Products</h2>
+<h2>Top Product: {category}</h2>
         {#await promise}
             <p>Loading</p>
         {:then products}
