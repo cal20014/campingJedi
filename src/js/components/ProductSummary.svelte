@@ -3,9 +3,9 @@
 </script>
 
 
-<a href="product_pages/index.html?product={productCard.Id}">
+<a href="../product_pages/index.html?product={productCard.Id}">
     <img
-      src={ productCard.Image }
+      src={ productCard.Images.PrimaryMedium }
       alt="{ productCard.Brand.Name } || { productCard.Name }"
     />
     <h3 class="card__brand">{ productCard.Brand.Name }</h3>
