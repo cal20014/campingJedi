@@ -110,6 +110,23 @@ button {
   fill: gray;
 }
 
+span:hover {
+  cursor: pointer
+}
+
+.num_items {
+  position: absolute;
+  top: 10px;
+  z-index: 2;
+  font-size: 15px;
+  border-radius: 100%;
+  background:#a4b8c4;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  color: black;
+  font-weight:600
+}
 /* End cart icon styles */
 
 .mission {
@@ -219,13 +236,4 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
-}
-
-.categories{
-  display: grid;
-  grid-template-columns: 5rem 5rem 5rem 5rem;
-}
-
-.category img{
-  width: 100px;
 }
