@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sleep Outside | Home</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/main.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <header class="divider" id="main-header">
     </header>
     <main class="divider">
+      <div id="callToAction">
+        <div>
+          <h1>First time here?</h1>
+          <h3>Sign up to receive coupons and be put in our giveaway raffle!</h3>
+            <a href="/src/admin/index.html"><button id="register" >Register Now</button></a>
+        </div>
+        <div id="newsletter">
+          <h3>Newsletter</h3>
+          <p>Sign up for the newsletter to receive: </p>
+          <ul>
+            <li>Promotional offers</li>
+            <li>Sales Events</li>
+            <li>New product Information</li>
+            <li>And more!!</li>
+          </ul>
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <br>
       <div class="hero">
         <img
           src="/images/banner-sm.jpg"
@@ -18,7 +37,7 @@
           alt="image of a high mountain lake"
         />
         <div class="logo logo--square">
-          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+          <img src="/images/noun_Tent_2517.svg" alt="tent image for logo">
           <div>Sleep<span class="highlight">Outside</span></div>
         </div>
       </div>
@@ -31,14 +50,33 @@
           comfortably at an affordable price.
         </p>
       </section>
-      <section id="categories">
-        <a href="product-list/index.html?category=tents"><img src="../images//icons/tent.svg" width="100" alt=""></a>
-        <a href="product-list/index.html?category=backpacks"><img src="../images//icons/backpack.svg" width="100" alt=""></a>
-        <a href="product-list/index.html?category=hammocks"><img src="../images//icons/hammock.svg" width="100" alt=""></a>
-        <a href="product-list/index.html?category=sleeping-bags"><img src="../images//icons/sleeping-bag.svg" width="100" alt=""></a>
+      <section id="product-icons">
+        <div>
+          <a href="/product-listing/index.html?category=tents">
+          <img src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Tent_3544767.svg" alt="tent Icon">
+          <h3>Tents</h3>
+          </a>
+        </div>
+        <div id="sleeping-bags">
+          <a href="/product-listing/index.html?category=sleeping-bags">
+          <img src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Sleeping%20Bag_3544775.svg" alt="sleeping bag icon">
+          <h3>Sleeping Bags</h3>
+          </a>
+        </div>
+        <div  id="backpacks" >
+          <a href="/product-listing/index.html?category=backpacks">
+          <img src="https://byui-cit.github.io/wdd330/images/category-icons/noun_carrier%20bag_3544771.svg" alt="Backpack icon">
+          <h3>Backpacks</h3>
+          </a>
+        </div>
+        <div id="hammocks">
+          <a href="/product-listing/index.html?category=hammocks">
+          <img src="https://byui-cit.github.io/wdd330/images/category-icons/noun_Hammock_791143.svg" alt="Hammock icon">
+          <h3>Hammocks</h3>
+          </a>
+        </div>
       </section>
-      <section class="products">
-      </section>
+
     </main>
     <footer id="main-footer"></footer>
   </body>

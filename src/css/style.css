@@ -110,23 +110,6 @@ button {
   fill: gray;
 }
 
-span:hover {
-  cursor: pointer
-}
-
-.num_items {
-  position: absolute;
-  top: 10px;
-  z-index: 2;
-  font-size: 15px;
-  border-radius: 100%;
-  background:#a4b8c4;
-  width: 20px;
-  line-height: 20px;
-  display: block;
-  color: black;
-  font-weight:600
-}
 /* End cart icon styles */
 
 .mission {
@@ -162,6 +145,21 @@ span:hover {
 .product-card h3,
 .product-card p {
   margin: 0.5em 0;
+}
+#product-icons{
+  display: flex;
+  justify-content: space-around;
+}
+#product-icons div {
+  width: 70%;
+}
+#product-icons img{
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+}
+#product-icons h3{
+  text-align: center;
 }
 
 .card__brand {
@@ -236,4 +234,162 @@ span:hover {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+#callToAction{
+  display: flex;
+  gap: 50px;
+  width: 100%;
+  background-color: #f0a868;
+  padding: 15px;
+}
+#buttons{
+  display: flex;
+}
+
+
+
+/* Animated Add To Cart Button */
+
+#addToCart{
+  cursor: pointer;
+  /* display: inline-block; */
+  position: relative;
+  transition: all 0.5s;
+}
+
+#addToCart:after{
+  content: '\00bb \0020';
+  white-space:pre;
+  position: absolute;
+  opacity: 0;
+}
+
+#addToCart:hover{
+  padding-right: 60px ;
+}
+
+#addToCart:hover:after{
+  opacity: 1;
+  right: 0;
+}
+
+div button:hover{
+  background-color:#7a871b;
+
+}
+
+/*Checkout CSS*/
+#customerInformation{
+  padding: 20px;
+}
+#customerInformation button{
+  margin-top: 20px;
+}
+
+/* When clicked */
+
+#addToCartShake{
+  animation: addToCart .1s 1;
+}
+
+fieldset {
+  border-radius: .8em;
+  margin: .5em 10%;
+  padding: 0 2em 2em;
+}
+
+fieldset input, fieldset label {
+  display: block;
+}
+
+fieldset label {
+  margin: 2em 0 .5em 0;
+}
+
+fieldset input {
+  width: 100%;
+  border-radius: .5em;
+  font-size: 1.1em;
+  padding: .5em;
+}
+
+fieldset li {
+  list-style-type: none;
+}
+
+.price-info {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+}
+
+.price-info p {
+  padding: 5px 0px;
+}
+
+.price-info .product-card__discount {
+  background-color: rgb(255, 71, 71);
+  color: white;
+  padding: 5px 10px;
+  width: fit-content;
+  border-radius: 5px;
+}
+
+.alert-message {
+  margin: 0;
+  display: block;
+  padding: .5em;
+}
+
+@keyframes addToCart {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-2.5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(2.5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* CART ICON ANIMATION */
+.cartShake:hover, .cartShaking{
+  animation: cart .3s ;
+}
+
+
+@keyframes cart {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* *************************** */
+
+
+
+/* Checkout CSS */
+
+.cart-card {
+  width: 100%;
+  grid-column-gap: 20px;
+}
+
+.cart-card p {
+  margin: 15px 0px;
+}
+
+.list-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+}
+
+.list-footer a {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  text-decoration: none;
+  color: white;
+  background-color: #f0a868;
+  padding: 10px 12px;
+  border-radius: 5px;
 }
