@@ -1,8 +1,6 @@
 <script>
     export let productCard;
-
-    console.log(productCard.DescriptionHtmlSimple);
-
+    
   let showModal = false; // A variable to control the visibility of the modal
 
   // Function to show the modal
