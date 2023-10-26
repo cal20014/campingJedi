@@ -3,7 +3,7 @@
     const cartItems = getLocalStorage("so-cart");
   </script>
   
-  <h2>My Cart</h2>
+  <h2>My Cart!</h2>
   
   <ul class="product-list">
     {#each cartItems as item}
@@ -18,7 +18,7 @@
           <h2 class="card__name">{item.Name}</h2>
         </a>
         <p class="cart-card__color">{item.Colors[0].ColorName}</p>
-        <p class="cart-card__quantity">qty: 1</p>
+        <p class="cart-card__quantity">qty: {item.quantity}</p>
         <p class="cart-card__price">${item.FinalPrice}</p>
       </li>
     {/each}

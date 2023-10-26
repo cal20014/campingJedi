@@ -7,8 +7,8 @@ const productId = getParam("product");
 productDetails(productId, ".product-detail");
 
 // add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await findProductById(e.target.dataset.id);
+async function addToCartHandler(event) {
+  const product = await findProductById(event.target.dataset.id);
   addProductToCart(product);
 }
 
