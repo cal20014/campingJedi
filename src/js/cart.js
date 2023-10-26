@@ -33,8 +33,6 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-// renderCartContents();
-
 document
   .querySelector(".product-list")
   .addEventListener("click", function (event) {
@@ -44,4 +42,5 @@ document
     }
   });
 
+renderCartContents();
 renderHeaderFooter();

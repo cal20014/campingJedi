@@ -32,6 +32,14 @@ export function addProductToCart() {
     cart = [];
   }
 
+  const existingProduct = cart.find((item) => item.Id === product.Id);
+
+  if (existingProduct) {
+    existingProduct.Quantity += 1;
+  } else {
+    product.Quantity = 1;
+  }
+
   // Add the new product to the cart
   cart.push(product);
 
