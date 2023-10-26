@@ -1,5 +1,5 @@
 <script>
-import { getData } from "../productData.mjs"
+import { getData } from "../externalServices.mjs"
 import ProductSummary from "./ProductSummary.svelte";
 
 export let category;
