@@ -1,46 +1,90 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-import { renderHeaderFooter } from "./utils.mjs";
+import {
+  getLocalStorage,
+  setLocalStorage,
+  renderHeaderFooter,
+} from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
   const productList = document.querySelector(".product-list");
-  if (cartItems !== null) {
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    productList.innerHTML = htmlItems.join("");
+  const cartItems = getLocalStorage("so-cart") || [];
+  let cartHTML = "";
+
+  if (cartItems.length > 0) {
+    cartHTML = `<ul class="cart-list">`;
+
+    cartItems.forEach((item) => {
+      cartHTML += `
+        <li class="cart-card">
+          <div>
+            <a href="/product_pages/index.html?productid=${item.Id}" class="cart-card__image">
+              <img src="${item.Images.PrimaryMedium}" alt="${item.Name}" />
+            </a>
+            <div>
+              <a href="../product_pages/index.html?product=${item.Id}">
+                <h2 class="card__name">${item.Name}</h2>
+              </a>
+              <p class="cart-card__color">${item.Colors[0].ColorName}</p>
+              <p class="cart-card__quantity">Quantity: ${item.Quantity}</p>
+              <p class="cart-card__price">$${item.FinalPrice}</p>
+            </div>
+          </div>
+          <button class="cart-card__remove" data-id="${item.Id}">
+            Remove
+          </button>
+        </li>`;
+    });
+
+    cartHTML += `</ul>`;
+
+    // Renamed variable here to avoid shadowing
+    const cartTotal = cartItems.reduce(
+      (total, item) => total + item.FinalPrice * item.Quantity,
+      0
+    );
+    cartHTML += `
+      <div class="cart-footer show">
+        <p class="item-count">Total Items: ${cartItems.length}</p>
+        <p class="cart-total">Total: $${cartTotal.toFixed(2)}</p>
+        <button class="checkout-button">Checkout</button>
+      </div>`;
   } else {
-    productList.innerHTML = `<p class="empty-cart-message">Your cart is empty</p>`;
+    cartHTML = `<p class="empty-cart-message">Your cart is empty</p>`;
   }
+
+  productList.innerHTML = cartHTML;
+  attachEventListeners();
+}
+
+function attachEventListeners() {
+  const productList = document.querySelector(".product-list");
+
+  productList.addEventListener("click", function (event) {
+    const removeBtn = event.target.closest(".cart-card__remove");
+    if (removeBtn) {
+      const id = removeBtn.getAttribute("data-id");
+      removeItemFromCart(id);
+    }
+
+    const checkoutBtn = event.target.closest(".checkout-button");
+    if (checkoutBtn) {
+      handleCheckout();
+    }
+  });
 }
 
 function removeItemFromCart(id) {
-  let cart = getLocalStorage("so-cart");
-  cart = cart.filter((item) => item.Id !== id);
+  let cart = getLocalStorage("so-cart") || [];
+  cart = cart.filter((item) => item.Id.toString() !== id); // Assuming ID is a number
   setLocalStorage("so-cart", cart);
   renderCartContents();
 }
 
-function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider" data-id="${item.Id}">
-  <a href="#" class="cart-card__image">
-    <img src="${item.Image}" alt="${item.Name}" />
-  </a>
-  <a href="#"><h2 class="card__name">${item.Name}</h2></a>
-  <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
-  <p class="cart-card__price">$${item.FinalPrice}</p>
-  <span class="cart-card__remove" data-id="${item.Id}" >❌</span>
-</li>`;
-  return newItem;
+function handleCheckout() {
+  console.log("Proceeding to checkout...");
+  // Add checkout functionality here
 }
 
-document
-  .querySelector(".product-list")
-  .addEventListener("click", function (event) {
-    if (event.target.classList.contains("cart-card__remove")) {
-      const itemId = event.target.dataset.id;
-      removeItemFromCart(itemId);
-    }
-  });
-
-renderCartContents();
-renderHeaderFooter();
+document.addEventListener("DOMContentLoaded", () => {
+  renderCartContents();
+  renderHeaderFooter();
+});
