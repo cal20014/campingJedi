@@ -4,7 +4,7 @@
 </script>
 
 <div class="logo">
-    <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
+    <img src="/images/noun_Tent_2517.svg" alt="tent logo" />
     <a href="../index.html"> Sleep<span class="highlight">Outside</span></a>
   </div>
   <div class="cart">
