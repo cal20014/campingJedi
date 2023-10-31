@@ -1,10 +1,10 @@
 <script>
-import { getData } from "../externalServices.mjs"
+import { getProductsByCategory } from "../externalServices.mjs"
 import ProductSummary from "./ProductSummary.svelte";
 
 export let category;
 
-let promise = getData(category);
+let promise = getProductsByCategory(category);
 
 </script>
 
