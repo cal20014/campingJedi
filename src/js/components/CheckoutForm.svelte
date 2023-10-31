@@ -76,41 +76,44 @@ const handleSubmit = async function(event) {
 
 </script>
 
-<fieldset class="shipping-summary">
-    <legend>Shipping</legend>
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="fname" placeholder="John" required />
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lname" placeholder="Doe" required />
-    <label for="street" class="street">Street Address</label>
-    <input type="text" id="street" name="street" placeholder="1234 Main St" required />
-    <label for="city">City</label>
-    <input type="text" id="city" name="city" placeholder="Anytown" required />
-    <label for="state">State</label>
-    <input type="text" id="state" name="state" placeholder="CA" required />
-    <label for="zip">Zip Code</label>
-    <input type="text" id="zip" name="zip" placeholder="12345" required />
-</fieldset>
+<form name="checkout" on:submit|preventDefault={handleSubmit}> 
 
-<fieldset class="payment-summary">
-    <legend>Payment</legend>
-    <label for="cardNumber">Card Number</label>
-    <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required />
-    <label for="expiration">Expiration Date</label>
-    <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required />
-    <label for="code">CVV</label>
-    <input type="text" id="code" name="code" placeholder="123" required />
-</fieldset>
-
-<fieldset class="checkout-summary">
-    <legend>Order Summary</legend>
-    <ul>
-        <li>Item Subtotal({quantity}) ${subtotal}</li>
-        <li>Shipping Estimate: ${shipping}</li>
-        <li>Tax ${tax}</li>
-        <li>Order Total ${total}</li>
-    </ul>
+    <fieldset class="shipping-summary">
+        <legend>Shipping</legend>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="John" required />
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Doe" required />
+        <label for="street" class="street">Street Address</label>
+        <input type="text" id="street" name="street" placeholder="1234 Main St" required />
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Anytown" required />
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" placeholder="CA" required />
+        <label for="zip">Zip Code</label>
+        <input type="text" id="zip" name="zip" placeholder="12345" required />
+    </fieldset>
     
-
+    <fieldset class="payment-summary">
+        <legend>Payment</legend>
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required />
+        <label for="expiration">Expiration Date</label>
+        <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required />
+        <label for="code">CVV</label>
+        <input type="text" id="code" name="code" placeholder="123" required />
+    </fieldset>
     
-  </fieldset>
+    <fieldset class="checkout-summary">
+        <legend>Order Summary</legend>
+        <ul>
+            <li>Item Subtotal({quantity}) ${subtotal}</li>
+            <li>Shipping Estimate: ${shipping}</li>
+            <li>Tax ${tax}</li>
+            <li>Order Total ${total}</li>
+        </ul>
+        
+    
+        
+    </fieldset>
+</form>
