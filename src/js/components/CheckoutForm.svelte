@@ -2,7 +2,7 @@
 
 <script>
 
-    import { getLocalStorage } from "../utils/";
+    import { getLocalStorage, formDataToJson } from "../utils/";
     // props
     export let key = "";
 
@@ -34,43 +34,84 @@
 
     init();
 
+    
+// takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
+function packageItems(items) {
+// convert the list of products from localStorage to the simpler form required for the checkout process. Array.map would be perfect for this.
+// remember that the items in localStorage are in the form of {product: {}, quantity: 1}
+    const simpleItems = items.map(item => {
+        console.log(item);
+        return {
+            id: item.Id,
+            name: item.Name,
+            price: item.FinalPrice,
+            quantity: item.Quantity,
+        };
+    });
+    return simpleItems;
+}
+
+const handleSubmit = async function(event) {
+  // build the data object from the calculated fields, the items in the cart, and the information entered into the form
+  // remember that the form that was submitted can be found two ways...this or e.target 
+  // call the checkout method in our externalServices module and send it our data object.
+
+  const jsonData = formDataToJson(this);
+
+  jsonData.orderDate = new Date();
+  jsonData.orderTotal = orderTotal;
+  jsonData.tax = tax;
+  jsonData.shipping = shipping;
+  jsonData.items = packageItems(items);
+  console.log(jsonData);
+  try {
+    const response = await checkout(jsonData);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+
+};
+
+
 </script>
 
-<fieldset class="shipping-summary">
-    <legend>Shipping</legend>
-    <label for="name">First Name</label>
-    <input type="text" id="name" name="name" placeholder="John" required />
-    <label for="name">Last Name</label>
-    <input type="text" id="name" name="name" placeholder="Doe" required />
-    <label for="street" class="street">Street Address</label>
-    <input type="text" id="street" name="street" placeholder="1234 Main St" required />
-    <label for="city">City</label>
-    <input type="text" id="city" name="city" placeholder="Anytown" required />
-    <label for="state">State</label>
-    <input type="text" id="state" name="state" placeholder="CA" required />
-    <label for="zip">Zip Code</label>
-    <input type="text" id="zip" name="zip" placeholder="12345" required />
-</fieldset>
+<form name="checkout" on:submit|preventDefault={handleSubmit}> 
 
-<fieldset class="payment-summary">
-    <legend>Payment</legend>
-    <label for="card">Card Number</label>
-    <input type="text" id="card" name="card" placeholder="1234 5678 9012 3456" required />
-    <label for="exp">Expiration Date</label>
-    <input type="text" id="exp" name="exp" placeholder="MM/YY" required />
-    <label for="cvv">CVV</label>
-    <input type="text" id="cvv" name="cvv" placeholder="123" required />
-</fieldset>
-
-<fieldset class="checkout-summary">
-    <legend>Order Summary</legend>
-    <ul>
-        <li>Item Subtotal({quantity}) ${subtotal}</li>
-        <li>Shipping Estimate: ${shipping}</li>
-        <li>Tax ${tax}</li>
-        <li>Order Total ${total}</li>
-    </ul>
+    <fieldset class="shipping-summary">
+        <legend>Shipping</legend>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" placeholder="John" required />
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" placeholder="Doe" required />
+        <label for="street" class="street">Street Address</label>
+        <input type="text" id="street" name="street" placeholder="1234 Main St" required />
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Anytown" required />
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" placeholder="CA" required />
+        <label for="zip">Zip Code</label>
+        <input type="text" id="zip" name="zip" placeholder="12345" required />
+    </fieldset>
     
-
+    <fieldset class="payment-summary">
+        <legend>Payment</legend>
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required />
+        <label for="expiration">Expiration Date</label>
+        <input type="text" id="expiration" name="expiration" placeholder="MM/YY" required />
+        <label for="code">CVV</label>
+        <input type="text" id="code" name="code" placeholder="123" required />
+    </fieldset>
     
-  </fieldset>
+    <fieldset class="checkout-summary">
+        <legend>Order Summary</legend>
+        <ul>
+            <li>Item Subtotal({quantity}) ${subtotal}</li>
+            <li>Shipping Estimate: ${shipping}</li>
+            <li>Tax ${tax}</li>
+            <li>Order Total ${total}</li>
+        </ul>
+    </fieldset>
+    <button id="checkoutSubmit" type="submit">Checkout</button>
+</form>
