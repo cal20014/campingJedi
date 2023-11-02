@@ -2,7 +2,7 @@
 
 <script>
 
-    import { getLocalStorage } from "../utils/";
+    import { getLocalStorage, formDataToJson } from "../utils/";
     // props
     export let key = "";
 
@@ -112,8 +112,6 @@ const handleSubmit = async function(event) {
             <li>Tax ${tax}</li>
             <li>Order Total ${total}</li>
         </ul>
-        
-    
-        
     </fieldset>
+    <button id="checkoutSubmit" type="submit">Checkout</button>
 </form>
