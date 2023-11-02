@@ -73,15 +73,29 @@ function attachEventListeners() {
 }
 
 function removeItemFromCart(id) {
-  let cart = getLocalStorage("so-cart") || [];
-  cart = cart.filter((item) => item.Id.toString() !== id); // Assuming ID is a number
-  setLocalStorage("so-cart", cart);
-  renderCartContents();
+  // Retrieve the current state of the cart from local storage
+  let cartItems = getLocalStorage("so-cart") || [];
+
+  // Find the index of the item in the cart
+  const itemIndex = cartItems.findIndex((item) => item.Id.toString() === id);
+
+  if (itemIndex !== -1) {
+    if (cartItems[itemIndex].Quantity > 1) {
+      // Decrement the quantity if more than one
+      cartItems[itemIndex].Quantity -= 1;
+    } else {
+      // Remove the item from the cart if only one left
+      cartItems = cartItems.filter((item, index) => index !== itemIndex);
+    }
+
+    // Update the cart in local storage and re-render the cart
+    setLocalStorage("so-cart", cartItems);
+    renderCartContents(); // Re-render the cart contents
+  }
 }
 
 function handleCheckout() {
   console.log("Proceeding to checkout...");
-  // Add checkout functionality here
 }
 
 document.addEventListener("DOMContentLoaded", () => {

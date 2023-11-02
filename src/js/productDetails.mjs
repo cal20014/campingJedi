@@ -37,14 +37,11 @@ export function addProductToCart() {
     existingProduct.Quantity += 1;
   } else {
     product.Quantity = 1;
+    cart.push(product);
   }
-
-  // Add the new product to the cart
-  cart.push(product);
 
   // Store the updated cart data back in local storage
   setLocalStorage("so-cart", cart);
-
   cartCount.set(cart.length);
 }
 
