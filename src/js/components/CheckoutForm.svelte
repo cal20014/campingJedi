@@ -74,7 +74,6 @@ const handleSubmit = async function(event) {
 
 };
 
-
 </script>
 
 <form name="checkout" on:submit|preventDefault={handleSubmit}> 
