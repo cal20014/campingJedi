@@ -2,7 +2,8 @@
 
 <script>
 
-    import { getLocalStorage, formDataToJson } from "../utils/";
+    import { getLocalStorage, formDataToJSON } from "../utils.mjs";
+    import { checkout } from "../externalServices.mjs";
     // props
     export let key = "";
 
@@ -56,7 +57,7 @@ const handleSubmit = async function(event) {
   // remember that the form that was submitted can be found two ways...this or e.target 
   // call the checkout method in our externalServices module and send it our data object.
 
-  const jsonData = formDataToJson(this);
+  const jsonData = formDataToJSON(this);
 
   jsonData.orderDate = new Date();
   jsonData.orderTotal = orderTotal;
