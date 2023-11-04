@@ -220,3 +220,12 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.categories{
+  display: grid;
+  grid-template-columns: 5rem 5rem 5rem 5rem;
+}
+
+.category img{
+  width: 100px;
+}

@@ -1,5 +1,14 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+https://trello.com/b/rVrICl32/wdd-330-fall-2023 - Grant
+Gavin Hart
+=======
+https://trello.com/b/rVrICl32/wdd-330-fall-2023 - Grant W
+>>>>>>> cc318933b4c28023e65d02e3a446ccd8fb3f8dee
+=======
 https://trello.com/b/rVrICl32/wdd-330-fall-2023
 Grant W Call
 Eleanor Barnum
 David Raya
 Indiana Brown
+>>>>>>> 0498626338bcc888d409a8e6b21c965fabdfa974

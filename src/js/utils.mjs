@@ -1,3 +1,6 @@
+import MainHeader from "./components/MainHeader.svelte";
+import MainFooter from "./components/MainFooter.svelte";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -20,4 +23,38 @@ export function setClick(selector, callback) {
     callback();
   });
   qs(selector).addEventListener("click", callback);
+}
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param);
+  return product;
+}
+
+export function getCartCount() {
+  const count = getLocalStorage("so-cart")?.length ?? 0;
+  return count;
+}
+
+export function renderHeaderFooter() {
+  new MainHeader({
+    target: document.querySelector("#main-header"),
+    props: {},
+  });
+
+  new MainFooter({
+    target: document.querySelector("#main-footer"),
+    props: {},
+  });
+}
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
 }
