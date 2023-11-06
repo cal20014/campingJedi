@@ -3,6 +3,7 @@
 //import { loadHeaderFooter } from './utils.mjs';
 import ProductList from "./components/ProductList.svelte"
 import { renderHeaderFooter } from "./utils.mjs"
+import { renderNews } from "./utils.mjs"
 
 new ProductList({
     target: document.querySelector(".products"),
@@ -10,6 +11,7 @@ new ProductList({
 })
 
 renderHeaderFooter()
+renderNews()
 
 //loadHeaderFooter();
 

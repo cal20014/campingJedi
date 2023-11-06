@@ -1,5 +1,6 @@
 import MainHeader from "./components/MainHeader.svelte";
 import MainFooter from "./components/MainFooter.svelte";
+import NewsLetter from "./components/newLetter.svelte";
 
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
@@ -44,6 +45,13 @@ export function renderHeaderFooter() {
 
   new MainFooter({
     target: document.querySelector("#main-footer"),
+    props: {},
+  });
+}
+
+export function renderNews() {
+  new NewsLetter({
+    target: document.querySelector("#news-letter"),
     props: {},
   });
 }
