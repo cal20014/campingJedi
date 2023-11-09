@@ -42,43 +42,4 @@
         <text x="0" y="120" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text> -->
       </svg>
     </a>
-  </div>    
-
-
-  <style>
-    #breadcrumb-container {
-  padding: 0.5rem 1rem; /* Adjust padding to suit your design */
-  background-color: #f8f9fa; /* Light gray background */
-  font-size: 0.875rem; /* Smaller font size for subtlety */
-  color: #6c757d; /* Muted text color */
-}
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-}
-
-.breadcrumb-item {
-  color: #007bff; /* Use a brand color for links */
-}
-
-.breadcrumb-item a {
-  text-decoration: none; /* No underline for links */
-  color: inherit; /* Inherit the color from .breadcrumb-item */
-}
-
-.breadcrumb-item a:hover {
-  text-decoration: underline; /* Underline on hover for better UX */
-}
-
-.breadcrumb-separator {
-  margin: 0 0.5rem; /* Space out the separator */
-  color: #6c757d; /* Same color as the text for consistency */
-}
-
-.breadcrumb-item.active {
-  font-weight: 500; /* Make the current page bold */
-  color: #343a40; /* Darker text for the current page */
-}
-
-  </style>
+  </div>
