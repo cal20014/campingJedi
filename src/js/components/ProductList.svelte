@@ -2,7 +2,7 @@
 import { getData } from "../externalServices.mjs"
 import ProductSummary from "./ProductSummary.svelte";
 import { onMount } from 'svelte';
-import { createBreadcrumb } from "../utils/breadcrumb.js";
+import { createBreadcrumb } from "../utils.mjs"
 
 export let category;
 let products = [];
