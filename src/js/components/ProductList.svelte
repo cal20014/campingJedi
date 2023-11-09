@@ -1,10 +1,17 @@
 <script>
 import { getData } from "../externalServices.mjs"
 import ProductSummary from "./ProductSummary.svelte";
+import { onMount } from 'svelte';
+import { createBreadcrumb } from "../utils/breadcrumb.js";
 
 export let category;
+let products = [];
 
 let promise = getData(category);
+  onMount(async () => {
+    products = await promise;
+    createBreadcrumb(category, products.length);
+  });
 
 </script>
 

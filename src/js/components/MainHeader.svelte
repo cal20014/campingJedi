@@ -1,6 +1,15 @@
 <script>
+  import { createBreadcrumb } from '../utils/breadcrumb.js';
+  import { onMount } from 'svelte';
 
+  export let category = null;
+  export let itemCount = null;
 
+  onMount(() => {
+    if (category) {
+      createBreadcrumb(category, itemCount);
+    }
+  });
 </script>
 
 <div class="logo">

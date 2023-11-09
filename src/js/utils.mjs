@@ -47,3 +47,28 @@ export function renderHeaderFooter() {
     props: {},
   });
 }
+
+// breadcrumb.js
+
+export function createBreadcrumb(category, itemCount) {
+  const header = document.querySelector("#main-header");
+  const breadcrumbContainer = document.createElement("div");
+  breadcrumbContainer.id = "breadcrumb-container";
+
+  let breadcrumbHTML = "";
+
+  if (category) {
+    breadcrumbHTML += `<nav aria-label="breadcrumb"><ol class="breadcrumb">`;
+    breadcrumbHTML += `<li class="breadcrumb-item"><a href="/?category=${category}">${category}</a></li>`;
+
+    if (itemCount !== undefined) {
+      breadcrumbHTML += `<li class="breadcrumb-item active" aria-current="page">${itemCount} items</li>`;
+    }
+
+    breadcrumbHTML += `</ol></nav>`;
+  }
+
+  breadcrumbContainer.innerHTML = breadcrumbHTML;
+
+  header.insertAdjacentElement("afterend", breadcrumbContainer);
+}
