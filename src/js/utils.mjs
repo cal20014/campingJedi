@@ -47,3 +47,19 @@ export function renderHeaderFooter() {
     props: {},
   });
 }
+
+export function getRandomNumbers(min, max, numberCount) {
+  const chosenNumbers = [];
+  
+
+  while (chosenNumbers.length < numberCount) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    // Check if the randomly generated number is not already chosen
+    if (!chosenNumbers.includes(randomNumber)) {
+      chosenNumbers.push(randomNumber);
+    }
+  }
+
+  return chosenNumbers;
+}

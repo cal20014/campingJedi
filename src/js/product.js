@@ -2,6 +2,7 @@ import { findProductById } from "./externalServices.mjs";
 import { renderHeaderFooter, getParam } from "./utils.mjs";
 import productDetails from "./productDetails.mjs";
 import { addProductToCart } from "./productDetails.mjs";
+import SuggestedProducts from './components/SuggestedProducts.svelte'
 
 const productId = getParam("product");
 productDetails(productId, ".product-detail");
@@ -14,10 +15,16 @@ async function addToCartHandler(event) {
 
 setTimeout(() => {
   const addCartButton = document.querySelector("#addToCart");
-  console.log(addCartButton);
   if (addCartButton) {
     addCartButton.addEventListener("click", addToCartHandler);
   }
 }, 1000); // delays for 5 seconds
 
 renderHeaderFooter();
+
+
+
+new SuggestedProducts({
+  target: document.querySelector(".suggested-products"),
+  props: {},
+})
